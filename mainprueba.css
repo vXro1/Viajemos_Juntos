@@ -1,0 +1,88 @@
+/* Estilos para el header animado */
+.animated-header {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Ajusta la altura según tu diseño */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(120deg, #0072ff, #00c6ff); /* Degradado de cielo */
+    animation: backgroundAnimation 10s infinite alternate ease-in-out;
+}
+
+/* Animación del degradado */
+@keyframes backgroundAnimation {
+    0% {
+        background: linear-gradient(120deg, #0072ff, #00c6ff);
+    }
+    100% {
+        background: linear-gradient(120deg, #00c6ff, #0072ff);
+    }
+}
+
+/* Nubes animadas */
+.cloud {
+    position: absolute;
+    background: white;
+    width: 100px;
+    height: 50px;
+    border-radius: 50px;
+    box-shadow: 30px 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0.8;
+    animation: moveClouds 20s linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 10px;
+}
+
+.cloud::after {
+    width: 80px;
+    height: 80px;
+    top: -40px;
+    left: 50px;
+}
+
+@keyframes moveClouds {
+    0% {
+        left: -100px;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Ubicación de varias nubes */
+.cloud:nth-child(1) {
+    top: 20px;
+    left: -50px;
+    animation-duration: 25s;
+}
+
+.cloud:nth-child(2) {
+    top: 50px;
+    left: -100px;
+    animation-duration: 30s;
+}
+
+.cloud:nth-child(3) {
+    top: 100px;
+    left: -150px;
+    animation-duration: 20s;
+}

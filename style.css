@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;700&display=swap');
+
+:root {
+    --light-bg: #ffffff;
+    --dark-bg: #3b6978;
+    --dark-text: #204051;
+    --light-text: #ffffff;
+    --accent: #77a6f7;
+    --secondary: #a2d5f2;
+    --tertiary: #f8f3d4;
+    --quaternary: #ffcf81;
+}
+
+body {
+    background-color: var(--secondary);
+    font-family: 'Quicksand', sans-serif;
+    color: var(--dark-text);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.8s ease-in-out;
+}
+
+header {
+    background: linear-gradient(90deg, var(--dark-bg), var(--accent));
+    padding: 40px;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--quaternary);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px;
+    transition: background 1.2s ease-in-out;
+}
+
+.card {
+    background: var(--light-bg);
+    color: var(--dark-text);
+    border-radius: 15px;
+    padding: 25px;
+    width: 340px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.card:hover {
+    background: var(--dark-bg);
+    color: var(--light-text);
+    transform: scale(1.08);
+}
+
+.card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+    opacity: 0.85;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 25px 0;
+}
+
+h1 {
+    font-size: 55px;
+    color: var(--quaternary);
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-size: 40px;
+    color: var(--dark-bg);
+}
+
+h3 {
+    font-size: 32px;
+    color: var(--accent);
+}
+
+p {
+    font-size: 22px;
+    line-height: 1.8;
+    text-align: justify;
+    padding: 18px;
+}
+
+.card:active {
+    background: var(--tertiary);
+    color: var(--dark-text);
+}
+
+.animated-header {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(to bottom, var(--secondary), var(--tertiary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.animated-header h1 {
+    color: var(--dark-text);
+    font-size: 2.8rem;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+.clouds {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.cloud {
+    position: absolute;
+    background: var(--light-text);
+    border-radius: 50%;
+    opacity: 0.9;
+    filter: blur(3px);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: var(--light-text);
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 60%;
+    height: 60%;
+    top: -30%;
+    left: 10%;
+}
+
+.cloud::after {
+    width: 80%;
+    height: 80%;
+    top: -50%;
+    left: 30%;
+}
+
+.cloud-1 { width: 120px; height: 60px; top: 40px; left: -10%; animation: floatClouds 14s linear infinite; }
+.cloud-2 { width: 150px; height: 75px; top: 70px; left: -20%; animation: floatClouds 17s linear infinite; }
+.cloud-3 { width: 100px; height: 50px; top: 100px; left: -30%; animation: floatClouds 11s linear infinite; }
+.cloud-4 { width: 180px; height: 90px; top: 20px; left: -40%; animation: floatClouds 19s linear infinite; }
+.cloud-5 { width: 130px; height: 65px; top: 50px; left: -50%; animation: floatClouds 16s linear infinite; }
+.cloud-6 { width: 110px; height: 55px; top: 80px; left: -60%; animation: floatClouds 13s linear infinite; }
+.cloud-7 { width: 160px; height: 80px; top: 30px; left: -70%; animation: floatClouds 21s linear infinite; }
+
+@keyframes floatClouds {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(120vw);
+    }
+}
