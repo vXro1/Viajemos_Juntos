@@ -1,0 +1,41 @@
+:root {
+    --light-bg: #ffffff;
+    --dark-bg: #3b6978;
+    --dark-text: #204051;
+    --light-text: #ffffff;
+    --accent: #77a6f7;
+    --secondary: #a2d5f2;
+    --tertiary: #f8f3d4;
+    --quaternary: #ffcf81;
+}
+
+/* Fondo con imagen de viaje */
+body {
+    background: linear-gradient(rgba(59, 105, 120, 0.8), rgba(32, 64, 81, 0.8)),
+                url('https://source.unsplash.com/1600x900/?travel,world');
+    background-size: cover;
+    background-position: center;
+    color: var(--light-text);
+}
+
+/* Caja de login */
+.login-box {
+    background-color: var(--tertiary);
+    color: var(--dark-text);
+    border-radius: 10px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Botón animado */
+.btn-primary {
+    background-color: var(--accent);
+    border: none;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--quaternary);
+    transform: scale(1.05);
+}
