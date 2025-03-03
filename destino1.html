@@ -1,91 +1,165 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <!-- Definición de la codificación y configuración de la vista para dispositivos móviles -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Título de la página que aparecerá en la pestaña del navegador -->
-    <title>Costa Amalfitana, Italia</title>
-    
-    <!-- Importación de la fuente 'Poppins' desde Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <!-- Inclusión de la librería jQuery para funcionalidades interactivas -->
+    <title>Viajemos por el Mundo - Costa Amalfitana</title>
+    <link rel="stylesheet" href="destinos.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <!-- Enlace a la hoja de estilos CSS externa -->
-    <link rel="stylesheet" href="styledestinos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
+
 <body>
-    <!-- Encabezado de la página con el título y un botón para cambiar de tema -->
-    <header>
-        <h1>Costa Amalfitana, Italia</h1>
-        <button id="toggle-theme">Cambiar Tema</button>
-    </header>
-
-    <!-- Sección del carrusel de imágenes -->
-    <section class="carousel">
-        <div class="carousel-container">
-            <img src="https://www.italia.it/content/dam/tdh/es/interests/campania/costiera-amalfitana/media/20210408132201-positano-costiera-amalfitana-campania-gettyimages-614626686.jpg" alt="Vista de Positano" class="active">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Amalfi_Coast_%28Italy%2C_October_2020%29_-_75_%2850558355441%29.jpg" alt="Puerto de Amalfi">
-            <img src="https://www.camperbaos.es/blog/wp-content/uploads/2024/09/Viajar-en-autocaravana-por-la-Costa-Amalfitana.jpg" alt="Terrazas en Ravello">
-        </div>
-        <!-- Botones de navegación del carrusel -->
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-    </section>
-
-    <!-- Sección descriptiva del destino -->
-    <section class="description">
-        <p>La Costa Amalfitana, en Italia, es un destino de ensueño famoso por sus paisajes impresionantes, acantilados escarpados y pueblos coloridos junto al mar Tirreno. Es un lugar ideal para disfrutar de la cultura, gastronomía y vistas espectaculares.</p>
-    </section>
-
-    <!-- Sección con video de YouTube sobre la Costa Amalfitana -->
-    <section class="video">
-        <h2>Descubre la Costa Amalfitana</h2>
-        <iframe 
-            src="https://www.youtube.com/embed/xGgDskfTCvY" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
-    </section>
-
-    <!-- Sección de actividades recomendadas -->
-    <section class="activities">
-        <h2>Actividades recomendadas</h2>
-        <ul id="activity-list">
-            <li>🌊 Navegar por la costa en barco</li>
-            <li>🏛️ Visitar la catedral de Amalfi</li>
-            <li>🍝 Disfrutar de la gastronomía local</li>
-            <li>🏞️ Hacer senderismo en el Valle de los Molinos</li>
-            <li>🏖️ Relajarse en la playa de Positano</li>
-        </ul>
-    </section>
-
-    <!-- Sección con destinos turísticos destacados -->
-    <h2>Destinos turísticos que debes conocer</h2>
-    <div class="parent">
-        <div class="ideauno">🏰 Catedral de San Andrés</div>
-        <div class="ideados">📜 Museo del Papel</div>
-        <div class="ideatres">🏖️ Playas de Spiaggia Grande y Fornillo</div>
-        <div class="ideacuatro">🌺 Jardines de la Villa Rufolo y la Villa Cimbrone</div>
+    <!-- Pantalla de presentación -->
+    <div class="splash-screen">
+        <div class="splash-text">Explorando la Costa Amalfitana</div>
     </div>
 
-    <!-- Sección del mapa con la ubicación de la Costa Amalfitana -->
-    <section class="map">
-        <h2>Ubicación</h2>
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d73406.3360479129!2d14.483610373799203!3d40.63504782600881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b9bd0df15106b%3A0x24d6785aa7f67869!2sCosta%20Amalfitana!5e0!3m2!1ses!2sit!4v1638401887923!5m2!1ses!2sit" 
-            width="100%" height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy">
-        </iframe>
-    </section>
+    <div class="content" style="display: none;">
+        <header class="header">VIAJEMOS POR EL MUNDO</header>
+        <p>Bienvenidos a la guía de la Costa Amalfitana</p>
+    </div>
+    <!-- ENCABEZADO -->
+    <header class="header">VIAJEMOS POR EL MUNDO</header>
 
-    <!-- Inclusión del archivo JavaScript externo -->
-    <script src="main.js"></script>
+    <!-- INTERRUPTOR DE TEMA -->
+    <div class="toggle-wrapper">
+        <input type="checkbox" id="toggle" class="toggle-checkbox">
+        <label for="toggle" class="toggle-label"></label>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Descripción -->
+        <section class="description">
+            <p>La Costa Amalfitana, en Italia, es un destino de ensueño famoso por sus paisajes impresionantes,
+                acantilados escarpados y pueblos coloridos junto al mar Tirreno. Es un lugar ideal para disfrutar de la
+                cultura, gastronomía y vistas espectaculares.</p>
+        </section>
+
+        <!-- Video -->
+        <section class="video">
+            <h2>Descubre la Costa Amalfitana</h2>
+            <iframe src="https://www.youtube.com/embed/xGgDskfTCvY" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </section>
+        <div class="container mt-5">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Positano
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Positano</strong> es uno de los destinos más pintorescos de la Costa Amalfitana. Sus casas de colores pastel se aferran a los acantilados, y sus estrechas calles están llenas de boutiques y restaurantes con vistas al mar.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Amalfi
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Amalfi</strong> es la ciudad que da nombre a la costa. Con su impresionante Catedral de San Andrés y su historia marítima, este encantador pueblo es el corazón cultural de la región.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Ravello
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Ravello</strong> es un refugio tranquilo en la cima de los acantilados, famoso por sus impresionantes jardines y vistas panorámicas del mar Mediterráneo. Su Festival de Música lo convierte en un destino cultural imperdible.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Actividades recomendadas -->
+        <section class="activities">
+            <h2>Actividades recomendadas</h2>
+            <ul id="activity-list">
+                <li>🌊 Navegar por la costa en barco</li>
+                <li>🏛️ Visitar la catedral de Amalfi</li>
+                <li>🍝 Disfrutar de la gastronomía local</li>
+                <li>🏞️ Hacer senderismo en el Valle de los Molinos</li>
+                <li>🏖️ Relajarse en la playa de Positano</li>
+            </ul>
+        </section>
+
+        <!-- Destinos turísticos destacados -->
+        <section class="destinos">
+            <h2>Destinos turísticos que debes conocer</h2>
+            <div class="parent">
+                <div class="ideauno">Catedral de San Andrés</div>
+                <div class="ideados">Museo del Papel</div>
+                <div class="ideatres">Playas de Spiaggia Grande y Fornillo</div>
+                <div class="ideacuatro">Jardines de la Villa Rufolo y la Villa Cimbrone</div>
+            </div>
+        </section>
+
+        <!-- Mapa -->
+        <section class="map">
+            <h2>Ubicación</h2>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d73406.3360479129!2d14.483610373799203!3d40.63504782600881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b9bd0df15106b%3A0x24d6785aa7f67869!2sCosta%20Amalfitana!5e0!3m2!1ses!2sit!4v1638401887923!5m2!1ses!2sit"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Ocultar la pantalla de presentación después de 3 segundos
+            setTimeout(() => {
+                document.querySelector(".splash-screen").classList.add("hidden");
+                setTimeout(() => {
+                    document.querySelector(".splash-screen").style.display = "none";
+                    document.querySelector(".main-content").style.display = "block";
+                }, 1500);
+            }, 3000);
+
+            // Obtener el interruptor de tema
+            const toggleSwitch = document.getElementById("toggle");
+
+            // Evento para alternar entre modo oscuro y claro
+            toggleSwitch.addEventListener("change", function () {
+                document.body.classList.toggle("dark-theme");
+                updateHoverEffect();
+            });
+
+            function updateHoverEffect() {
+                $("#activity-list li").hover(
+                    function () {
+                        if ($("body").hasClass("dark-theme")) {
+                            $(this).css("color", "#FFFF00");
+                        } else {
+                            $(this).css("color", "#007BFF");
+                        }
+                    },
+                    function () {
+                        $(this).css("color", "");
+                    }
+                );
+            }
+
+            updateHoverEffect();
+        });
+        document.body.classList.toggle('dark-mode');
+
+    </script>
 </body>
+
 </html>
