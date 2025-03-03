@@ -1,75 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seúl, Corea del Sur</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Viajemos por el Mundo - Corea del Sur</title>
+    <link rel="stylesheet" href="destinos.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="styledestinos.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
-    <header>
-        <h1>Seúl, Corea del Sur</h1>
-        <button id="toggle-theme">Cambiar Tema</button>
-    </header>
-
-    <section class="carousel">
-        <div class="carousel-container">
-            <img src="https://elviajista.com/wp-content/uploads/2019/01/quehacerseul.jpg" alt="Vista de Seúl" class="active">
-            <img src="https://viajes.nationalgeographic.com.es/medio/2024/12/04/busan-corea-del-sur_c2fa31b6_241204153319_1280x854.webp" alt="Bukchon Hanok Village">
-            <img src="https://www.diariodigital.com.do/wp-content/uploads/2024/07/hq720.jpg" alt="Palacio Gyeongbokgung">
-        </div>
-        <button class="prev">&#10094;</button>
-        <button class="next">&#10095;</button>
-    </section>
-
-    <section class="description">
-        <p>Seúl, la vibrante capital de Corea del Sur, combina modernidad y tradición con sus rascacielos futuristas, palacios históricos y una cultura gastronómica excepcional.</p>
-    </section>
-
-    <section class="video">
-        <h2>Descubre Seúl</h2>
-        <iframe 
-            src="https://www.youtube.com/embed/VXme3B2xfiQ" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
-    </section>
-    
-
-    <section class="activities">
-        <h2>Actividades recomendadas</h2>
-        <ul id="activity-list">
-            <li>🏯 Explorar los palacios reales</li>
-            <li>🛍️ Ir de compras en Myeongdong</li>
-            <li>🍜 Disfrutar de la comida callejera en Gwangjang Market</li>
-            <li>🏞️ Subir a la Torre Namsan</li>
-            <li>🎶 Descubrir la cultura K-pop en Hongdae</li>
-        </ul>
-    </section>
-
-    <h2>Lugares turísticos que debes visitar</h2>
-    <div class="parent">
-        <div class="ideauno">🏯 Palacio Gyeongbokgung</div>
-        <div class="ideados">🏛️ Museo Nacional de Corea</div>
-        <div class="ideatres">🏞️ Parque Nacional de Bukhansan</div>
-        <div class="ideacuatro">🛍️ Mercado de Namdaemun</div>
+    <!-- Pantalla de presentación -->
+    <div class="splash-screen">
+        <div class="splash-text">Explorando Corea del Sur</div>
     </div>
 
-    <section class="map">
-        <h2>Ubicación</h2>
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.923308048667!2d126.9780!3d37.5665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2dcdf62e933%3A0x17a2f4d8585cbf2c!2sSe%C3%BAl%2C%20Corea%20del%20Sur!5e0!3m2!1ses!2skr!4v1638401887923!5m2!1ses!2skr" 
-            width="100%" height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy">
-        </iframe>
-    </section>
+    <div class="content" style="display: none;">
+        <header class="header">VIAJEMOS POR EL MUNDO</header>
+        <p>Bienvenidos a la guía de Corea del Sur</p>
+    </div>
+    
+    <!-- ENCABEZADO -->
+    <header class="header">VIAJEMOS POR EL MUNDO</header>
 
-    <script src="main.js"></script>
+    <!-- INTERRUPTOR DE TEMA -->
+    <div class="toggle-wrapper">
+        <input type="checkbox" id="toggle" class="toggle-checkbox">
+        <label for="toggle" class="toggle-label"></label>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Descripción -->
+        <section class="description">
+            <p>Corea del Sur es un país vibrante y moderno, conocido por su impresionante tecnología, cultura K-pop, gastronomía y paisajes históricos. Es un destino que combina lo tradicional con lo futurista.</p>
+        </section>
+
+        <!-- Video -->
+        <section class="video">
+            <h2>Descubre Corea del Sur</h2>
+            <iframe src="https://www.youtube.com/embed/VTsGRGeBj98?si=kJnTlMslziWjGRGD&amp" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </section>
+
+        <div class="container mt-5">
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Seúl
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Seúl</strong> es la capital del país y una metrópolis vibrante con rascacielos, palacios históricos como Gyeongbokgung y una vida nocturna inigualable.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Busan
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Busan</strong> es famosa por sus playas, su mercado de mariscos Jagalchi y el impresionante Templo Haedong Yonggungsa junto al mar.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Isla de Jeju
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <strong>Isla de Jeju</strong> es un destino natural increíble con cascadas, playas volcánicas y el famoso cráter Seongsan Ilchulbong.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Actividades recomendadas -->
+        <section class="activities">
+            <h2>Actividades recomendadas</h2>
+            <ul id="activity-list">
+                <li>🏯 Visitar los palacios reales en Seúl</li>
+                <li>🍜 Probar el auténtico kimchi y bibimbap</li>
+                <li>🌊 Disfrutar de la playa Haeundae en Busan</li>
+                <li>⛰️ Escalar Hallasan en Jeju</li>
+                <li>🎤 Experimentar un karaoke coreano (noraebang)</li>
+            </ul>
+        </section>
+
+        <!-- Destinos turísticos destacados -->
+        <section class="destinos">
+            <h2>Destinos turísticos que debes conocer</h2>
+            <div class="parent">
+                <div class="ideauno">Palacio Gyeongbokgung</div>
+                <div class="ideados">Namsan Tower</div>
+                <div class="ideatres">Templo Bulguksa</div>
+                <div class="ideacuatro">DMZ (Zona Desmilitarizada)</div>
+            </div>
+        </section>
+
+        <!-- Mapa -->
+        <section class="map">
+            <h2>Ubicación</h2>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3264276.229321774!2d126.727539!3d36.5053541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2b4a201c2fb%3A0x3f6cf2e52c8c6b77!2sCorea%20del%20Sur!5e0!3m2!1ses!2ses!4v1638401887923!5m2!1ses!2ses"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            setTimeout(() => {
+                document.querySelector(".splash-screen").classList.add("hidden");
+                setTimeout(() => {
+                    document.querySelector(".splash-screen").style.display = "none";
+                    document.querySelector(".main-content").style.display = "block";
+                }, 1500);
+            }, 3000);
+
+            const toggleSwitch = document.getElementById("toggle");
+            toggleSwitch.addEventListener("change", function () {
+                document.body.classList.toggle("dark-theme");
+            });
+        });
+    </script>
 </body>
-</html>
 
+</html>
