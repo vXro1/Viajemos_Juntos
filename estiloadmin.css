@@ -1,0 +1,182 @@
+:root {
+    --light-bg: #f1e0a6; /* Suave amarillo pastel */
+    --dark-bg: #1b2a49; /* Azul oscuro */
+    --light-text: #000000;
+    --dark-text: #ffffff;
+    --light-header: #ff9f00; /* Naranja suave */
+    --dark-header: #1e2532; /* Azul oscuro para encabezados */
+    --accent: #77a6f7; /* Azul claro */
+    --secondary: #a2d5f2; /* Azul pastel */
+    --tertiary: #f8f3d4; /* Crema suave */
+    --quaternary: #ffcf81; /* Amarillo suave */
+    --light-idea: #0099cc; /* Azul vibrante */
+    --dark-idea: #ffd700; /* Amarillo brillante */
+}
+
+body {
+    background-color: var(--accent);
+    color: var(--dark-idea);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    color: var(--light-header);
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    animation: fadeInColor 2s ease-in-out;
+}
+
+@keyframes fadeInColor {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+        color: var(--quaternary);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(10px);
+        color: var(--accent);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        color: var(--light-header);
+    }
+}
+
+p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--secondary);
+    margin-bottom: 40px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Barra de búsqueda */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.search-box {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid var(--accent);
+    border-radius: 25px;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.search-box:focus {
+    border-color: var(--light-header);
+    outline: none;
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--light-header);
+}
+
+.btn-outline-secondary {
+    background-color: var(--light-header);
+    color: var(--dark-text);
+    border-radius: 50px;
+    padding: 12px 20px;
+    margin-left: 15px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--accent);
+    color: var(--light-text);
+    transform: scale(1.1);
+}
+
+table {
+    width: 100%;
+    margin-top: 30px;
+    background-color: var(--secondary);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+th, td {
+    padding: 18px;
+    text-align: center;
+    font-size: 1.1rem;
+    border-bottom: 2px solid var(--light-bg);
+}
+
+th {
+    background-color: var(--light-header);
+    color: var(--dark-text);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+td {
+    background-color: var(--tertiary);
+    color: var(--dark-text);
+}
+
+.highlight {
+    background-color: var(--accent);
+    color: var(--dark-text);
+    font-weight: bold;
+    animation: highlight 0.3s ease-in-out;
+}
+
+@keyframes highlight {
+    from { background-color: var(--tertiary); }
+    to { background-color: var(--accent); }
+}
+
+.user-row {
+    transition: background-color 0.3s ease;
+}
+
+.user-row:hover {
+    background-color: var(--light-idea);
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.container {
+    padding: 30px;
+    background-color: var(--dark-bg);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.highlight {
+    background-color: var(--quaternary); /* Resaltar con color amarillo suave */
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.highlight:hover {
+    background-color: var(--light-header); /* Cambia a color naranja suave cuando se pasa el cursor */
+}
