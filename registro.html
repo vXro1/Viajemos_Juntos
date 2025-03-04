@@ -108,15 +108,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             alert("Registro exitoso. Ahora puedes iniciar sesión.");
 
-            // Redirigir al usuario según su rol
-            if (role === "admin") {
-                window.location.href = "admin.html"; // Redirigir al panel de administrador
-            } else {
-                window.location.href = "paginaprincipal.html"; // Redirigir a la página principal
-            }
+            // Redirigir siempre a la página de login
+            window.location.href = "login.html";
         });
     }
 });
+
 
 
     </script>
