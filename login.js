@@ -1,4 +1,46 @@
-document.addEventListener("DOMContentLoaded", function () {
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Viajemos Juntos</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- Hoja de estilos personalizada -->
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="login-box p-5 shadow-lg animate__animated animate__fadeInUp">
+            <h2 class="text-center mb-4">🌍 Bienvenido de nuevo</h2>
+
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" placeholder="Tu correo" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" placeholder="Tu contraseña" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+            </form>
+
+            <p class="text-center mt-3">
+                ¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a>
+            </p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
     // Manejo del formulario de inicio de sesión
     let loginForm = document.getElementById("loginForm");
     if (loginForm) {
@@ -30,61 +72,16 @@ document.addEventListener("DOMContentLoaded", function () {
             // Redirigir al usuario según su rol
             if (validUser.role === "admin") {
                 window.location.href = "admin.html"; // Redirigir al panel de administrador
-            } else {
-                window.location.href = "paginaprincipal.html"; // Redirigir a la página principal
+            } else if (validUser.role === "user") {
+                window.location.href = "paginaprincpial.html"; // Redirigir a la página principal de usuarios regulares
             }
-        });
-    }
-
-    // Manejo del formulario de registro
-    let registerForm = document.getElementById("registerForm");
-    if (registerForm) {
-        registerForm.addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            let name = document.getElementById("name").value.trim();
-            let email = document.getElementById("email").value.trim();
-            let password = document.getElementById("password").value;
-            let confirmPassword = document.getElementById("confirm-password").value;
-
-            // Validar campos vacíos
-            if (!name || !email || !password || !confirmPassword) {
-                alert("Todos los campos son obligatorios.");
-                return;
-            }
-
-            // Validar email con una expresión regular
-            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert("Ingrese un correo electrónico válido.");
-                return;
-            }
-
-            // Verificar que las contraseñas coincidan
-            if (password !== confirmPassword) {
-                alert("Las contraseñas no coinciden.");
-                return;
-            }
-
-            // Obtener usuarios guardados en LocalStorage o inicializar lista vacía
-            let users = JSON.parse(localStorage.getItem("users")) || [];
-
-            // Verificar si el usuario ya está registrado
-            if (users.some(user => user.email === email)) {
-                alert("Este correo ya está registrado. Intenta iniciar sesión.");
-                return;
-            }
-
-            // Asumir que el primer usuario registrado es el administrador
-            let role = users.length === 0 ? "admin" : "usuario";
-
-            // Guardar el nuevo usuario (con codificación de la contraseña)
-            let newUser = { name, email, password: btoa(password), role }; // btoa() codifica en base64
-            users.push(newUser);
-            localStorage.setItem("users", JSON.stringify(users));
-
-            alert("Registro exitoso. Ahora puedes iniciar sesión.");
-            window.location.href = "login.html"; // Redirigir al login
         });
     }
 });
+
+
+    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
