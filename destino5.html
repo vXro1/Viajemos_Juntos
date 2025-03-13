@@ -11,18 +11,25 @@
 </head>
 
 <body>
-    <!-- Pantalla de presentación -->
-    <div class="splash-screen">
+    <div id="splash-screen">
         <div class="splash-text">Explorando Corea del Sur</div>
     </div>
 
-    <div class="content" style="display: none;">
-        <header class="header">VIAJEMOS POR EL MUNDO</header>
-        <p>Bienvenidos a la guía de Corea del Sur</p>
-    </div>
-    
-    <!-- ENCABEZADO -->
-    <header class="header">VIAJEMOS POR EL MUNDO</header>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="paginaprincipal.html">Inicio</a></li>
+                <li><a href="destino1.html">Destino 1</a></li>
+                <li><a href="destino2.html">Destino 2</a></li>
+                <li><a href="destino3.html">Destino 3</a></li>
+                <li><a href="destino4.html">Destino 4</a></li>
+                <li><a href="destino6.html">Destino 6</a></li>
+
+            </ul>
+        </nav>
+ 
+    </header>
+
 
     <!-- INTERRUPTOR DE TEMA -->
     <div class="toggle-wrapper">
@@ -91,25 +98,56 @@
         <section class="activities">
             <h2>Actividades recomendadas</h2>
             <ul id="activity-list">
-                <li>🏯 Visitar los palacios reales en Seúl</li>
-                <li>🍜 Probar el auténtico kimchi y bibimbap</li>
-                <li>🌊 Disfrutar de la playa Haeundae en Busan</li>
-                <li>⛰️ Escalar Hallasan en Jeju</li>
-                <li>🎤 Experimentar un karaoke coreano (noraebang)</li>
+                <li>Visitar los palacios reales en Seúl</li>
+                <li> Probar el auténtico kimchi y bibimbap</li>
+                <li>Disfrutar de la playa Haeundae en Busan</li>
+                <li>Escalar Hallasan en Jeju</li>
+                <li>Experimentar un karaoke coreano (noraebang)</li>
             </ul>
         </section>
 
-        <!-- Destinos turísticos destacados -->
-        <section class="destinos">
-            <h2>Destinos turísticos que debes conocer</h2>
-            <div class="parent">
-                <div class="ideauno">Palacio Gyeongbokgung</div>
-                <div class="ideados">Namsan Tower</div>
-                <div class="ideatres">Templo Bulguksa</div>
-                <div class="ideacuatro">DMZ (Zona Desmilitarizada)</div>
+        
+        <section class="photo-gallery">
+            <h2>Galería de fotos</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://th.bing.com/th/id/OIP.V9-mg83gThgwQP34s-ksDgHaE8?rs=1&pid=ImgDetMain" alt="Costa Amalfitana" class="gallery-image">
+                    <div class="overlay">
+                        <p>Visitar el Fushimi Inari Taisha</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://th.bing.com/th/id/R.0eb476ca0ec3a5a1dc42f8c4446ddb80?rik=c1%2fvZGx%2fF3ZxJw&pid=ImgRaw&r=0" alt="Catedral de Amalfi" class="gallery-image">
+                    <div class="overlay">
+                        <p> Explorar el Templo Senso-ji</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://th.bing.com/th/id/OIP.2DnaChO76IKXETyz8vsIeAHaE8?rs=1&pid=ImgDetMain" alt="Gastronomía local" class="gallery-image">
+                    <div class="overlay">
+                        <p> Disfrutar la gastronomía</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://th.bing.com/th/id/OIP.ZTsukeWpEGVue7eL3z7B4gFEDA?rs=1&pid=ImgDetMain" alt="Senderismo" class="gallery-image">
+                    <div class="overlay">
+                        <p>Disfrutar un espectáculo de geishas en Gion</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://estaticos-cdn.prensaiberica.es/clip/235cb064-77eb-4cd8-9a28-1a50fce66758_alta-aspect-ratio_default_0.jpg" alt="Playa Positano" class="gallery-image">
+                    <div class="overlay">
+                        <p> Relajarse en la playa</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://th.bing.com/th/id/OIP.J9SnQq2vqClMO9sTUF5AVwHaFj?rs=1&pid=ImgDetMain" alt="Playa Positano" class="gallery-image">
+                    <div class="overlay">
+                        <p> Atardeceres hermosos</p>
+                    </div>
+                </div>
             </div>
         </section>
-
         <!-- Mapa -->
         <section class="map">
             <h2>Ubicación</h2>
@@ -122,18 +160,51 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Ocultar la pantalla de presentación después de 3 segundos
             setTimeout(() => {
-                document.querySelector(".splash-screen").classList.add("hidden");
+                const splashScreen = document.getElementById("splash-screen");
+                splashScreen.classList.add("hidden");
                 setTimeout(() => {
-                    document.querySelector(".splash-screen").style.display = "none";
+                    splashScreen.style.display = "none";
                     document.querySelector(".main-content").style.display = "block";
                 }, 1500);
             }, 3000);
 
             const toggleSwitch = document.getElementById("toggle");
+            const body = document.body;
+
+            // Verificar si hay una preferencia guardada en localStorage
+            if (localStorage.getItem("theme") === "dark") {
+                body.classList.add("dark-theme");
+                toggleSwitch.checked = true;
+            }
+
+            // Evento para cambiar entre modos
             toggleSwitch.addEventListener("change", function () {
-                document.body.classList.toggle("dark-theme");
+                if (this.checked) {
+                    body.classList.add("dark-theme");
+                    localStorage.setItem("theme", "dark");
+                } else {
+                    body.classList.remove("dark-theme");
+                    localStorage.setItem("theme", "light");
+                }
+                updateHoverEffect();
             });
+
+            function updateHoverEffect() {
+                document.querySelectorAll("#activity-list li").forEach(li => {
+                    li.addEventListener("mouseenter", function () {
+                        this.style.color = body.classList.contains("dark-theme") ? "#FFFF00" : "#007BFF";
+                    });
+                    li.addEventListener("mouseleave", function () {
+                        this.style.color = "";
+                    });
+                });
+            }
+
+            updateHoverEffect();
+
+           
         });
     </script>
 </body>
