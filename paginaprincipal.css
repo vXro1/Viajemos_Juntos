@@ -61,7 +61,7 @@ body {
     top: 40px;
     left: -10%;
     animation: floatClouds 14s linear infinite;
-    box-shadow: 
+    box-shadow:
         30px 15px 30px rgba(255, 255, 255, 0.9),
         60px 5px 40px rgba(255, 255, 255, 0.8),
         90px 10px 50px rgba(255, 255, 255, 0.7);
@@ -73,7 +73,7 @@ body {
     top: 80px;
     left: -20%;
     animation: floatClouds 18s linear infinite;
-    box-shadow: 
+    box-shadow:
         35px 20px 35px rgba(255, 255, 255, 0.9),
         70px 10px 45px rgba(255, 255, 255, 0.8),
         100px 15px 55px rgba(255, 255, 255, 0.7);
@@ -85,7 +85,7 @@ body {
     top: 120px;
     left: -30%;
     animation: floatClouds 12s linear infinite;
-    box-shadow: 
+    box-shadow:
         25px 12px 28px rgba(255, 255, 255, 0.9),
         55px 8px 38px rgba(255, 255, 255, 0.8),
         85px 12px 48px rgba(255, 255, 255, 0.7);
@@ -93,8 +93,13 @@ body {
 
 /* Animación flotante */
 @keyframes floatClouds {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(120vw); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(120vw);
+    }
 }
 
 
@@ -115,8 +120,10 @@ body {
     backdrop-filter: blur(20px);
     border-radius: 20px;
     overflow: hidden;
-    border: 2px solid rgba(0, 102, 255, 0.5); /* Borde azul brillante */
-    box-shadow: 0 8px 16px rgba(0, 102, 255, 0.3); /* Resplandor azul */
+    border: 2px solid rgba(0, 102, 255, 0.5);
+    /* Borde azul brillante */
+    box-shadow: 0 8px 16px rgba(0, 102, 255, 0.3);
+    /* Resplandor azul */
     transition: transform 0.3s ease-in-out;
     text-align: center;
     padding: 20px;
@@ -128,7 +135,8 @@ body {
 
 .card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 102, 255, 0.5); /* Mayor resplandor al hacer hover */
+    box-shadow: 0 10px 20px rgba(0, 102, 255, 0.5);
+    /* Mayor resplandor al hacer hover */
     color: #ffcf81;
 }
 
@@ -136,19 +144,25 @@ body {
     width: 80%;
     height: auto;
     border-radius: 15px;
-    border: 2px solid rgba(255, 255, 255, 0.3); /* Borde sutil para resaltar la imagen */
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    /* Borde sutil para resaltar la imagen */
 }
 
 .card h2 {
     font-size: 18px;
     font-weight: bold;
-    color: #ffffff; /* Texto blanco para mayor contraste */
+    color: #ffffff;
+    /* Texto blanco para mayor contraste */
     margin-top: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .card p {
     font-size: 14px;
-    color: #d1e7ff; /* Azul claro para mejor visibilidad */
+    color: #3b6978;
+    /* Azul claro para mejor visibilidad */
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
 }
 
 /* Diseño responsivo */
@@ -176,23 +190,31 @@ body {
     background: var(--quaternary);
     transform: scale(1.05);
 }
+
 /* Carrusel */
 .carousel {
-    width: 80%; /* Ajusta el ancho del carrusel */
-    max-width: 400px; /* Evita que sea muy grande */
-    height: 300px; /* Altura fija para que no crezca demasiado */
+    width: 80%;
+    /* Ajusta el ancho del carrusel */
+    max-width: 400px;
+    /* Evita que sea muy grande */
+    height: 300px;
+    /* Altura fija para que no crezca demasiado */
     margin: auto;
     overflow: hidden;
-    border: 2px solid rgba(255, 225, 0, 0.5); /* Borde azul brillante */
-    box-shadow: 0 8px 16px #ffcf81; /* Resplandor azul */
+    border: 2px solid #3b6978;
+    /* Borde azul brillante */
+    box-shadow: 0 8px 16px #204051;
+    /* Resplandor azul */
     transition: transform 0.3s ease-in-out;
 }
 
 /* Ajuste de imágenes dentro del carrusel */
 .carousel img {
-    width: 100%; 
-    height: 100%; /* Ocupa todo el espacio del carrusel */
-    object-fit: cover; /* Mantiene la proporción y evita deformaciones */
+    width: 100%;
+    height: 100%;
+    /* Ocupa todo el espacio del carrusel */
+    object-fit: cover;
+    /* Mantiene la proporción y evita deformaciones */
     border-radius: 5px;
 }
 
@@ -200,6 +222,41 @@ body {
 @media (max-width: 768px) {
     .carousel {
         width: 90%;
-        height: 250px; /* Ajusta la altura en móviles */
+        height: 250px;
+        /* Ajusta la altura en móviles */
+    }
+}/* estilos footer*/
+footer {
+    background-color: #ffd700;
+    color: var(--light-bg);
+    text-align: center;
+    padding: 15px;
+    margin-top: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    animation: fadeInUp 1.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efecto al pasar el mouse */
+footer:hover {
+    background-color: var #ffffff; /* Azul más oscuro */
+    color:var(--dark-text);
+    transform: scale(1.05); /* Pequeño aumento de tamaño */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación personalizada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
