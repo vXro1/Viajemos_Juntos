@@ -6,12 +6,11 @@
     --accent: #77a6f7;
     --secondary: #a2d5f2;
     --tertiary: #f8f3d4;
-    --quaternary: #ffcf81;
 }
 
 /* Fondo con imagen de viaje */
 body {
-    background: linear-gradient(rgba(59, 105, 120, 0.8), rgba(32, 64, 81, 0.8)),
+    background: linear-gradient(--light-text),
                 url('https://source.unsplash.com/1600x900/?travel,world');
     background-size: cover;
     background-position: center;
@@ -20,7 +19,7 @@ body {
 
 /* Caja de login */
 .login-box {
-    background-color: var(--tertiary);
+    background-color: var(--secondary);
     color: var(--dark-text);
     border-radius: 10px;
     max-width: 400px;
@@ -36,6 +35,7 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: var(--quaternary);
+    background-color: var(--dark-bg);
     transform: scale(1.05);
 }
+
