@@ -19,33 +19,39 @@
         <div class="search-container">
             <input type="text" class="search-box" id="searchInput" placeholder="Buscar...">
             <span class="search-icon"><i class="fas fa-plane"></i></span>
-            <!-- Botón de lupa -->
             <button class="btn btn-outline-secondary" id="searchButton">
                 <i class="fas fa-search"></i>
             </button>
-
         </div>
 
-        <!-- Tabla de usuarios -->
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Email</th>
-                    <th>Rol</th>
-                </tr>
-            </thead>
-            <tbody id="userTable">
-                <!-- Los usuarios serán cargados aquí -->
-            </tbody>
-        </table>
-        <!-- Botón para borrar todos los usuarios -->
-        <button class="btn btn-danger mt-3" id="deleteButton">
-            Borrar Todos los Usuarios
-        </button>
+        <div class="table-container">
+            <!-- Tabla de usuarios -->
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Rol</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="userTable">
+                    <!-- Los usuarios serán cargados aquí -->
+                </tbody>
+            </table>
 
+            <!-- Botón para borrar todos los usuarios -->
+            <button class="btn btn-danger mt-3" id="deleteButton">Borrar Todos los Usuarios</button>
+
+            <!-- Botón para ir a la página principal -->
+            <button class="btn btn-primary mt-3" id="botonpaginaprincipal">Página Principal</button>
+        </div>
     </div>
+
+    <footer class="footer">
+        <p class="mb-0">&copy; 2025 Viajemos Juntos - Desarrollado por Karen Verónica Mancilla Solarte</p>
+    </footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -55,69 +61,108 @@
             // Mostrar todos los usuarios inicialmente
             displayUsers(users);
 
-            // Función para mostrar usuarios
             function displayUsers(usersToDisplay) {
                 tableBody.innerHTML = "";
                 if (usersToDisplay.length === 0) {
-                    tableBody.innerHTML = "<tr><td colspan='4'>No hay usuarios registrados.</td></tr>";
+                    tableBody.innerHTML = "<tr><td colspan='5'>No hay usuarios registrados.</td></tr>";
                 } else {
                     usersToDisplay.forEach((user, index) => {
-                        tableBody.innerHTML += `
-                    <tr class="user-row">
-                        <td>${index + 1}</td>
-                        <td class="user-name">${user.name}</td>
-                        <td class="user-email">${user.email}</td>
-                        <td class="user-role">${user.role}</td>
-                    </tr>
-                `;
+                        let row = document.createElement("tr");
+                        row.innerHTML = `
+                            <td>${index + 1}</td>
+                            <td class="user-name">${user.name}</td>
+                            <td class="user-email">${user.email}</td>
+                            <td class="user-role">${user.role}</td>
+                            <td>
+                                <button class="btn btn-warning btn-sm edit-btn" data-index="${index}"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-danger btn-sm delete-btn" data-index="${index}"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+
+                    // Agregar eventos para editar y eliminar
+                    document.querySelectorAll(".edit-btn").forEach(button => {
+                        button.addEventListener("click", editUser);
+                    });
+                    document.querySelectorAll(".delete-btn").forEach(button => {
+                        button.addEventListener("click", deleteUser);
                     });
                 }
             }
 
-            // Función para resaltar las coincidencias
+            // Función para editar usuario
+            function editUser(event) {
+                let index = event.target.closest("button").dataset.index;
+                let user = users[index];
+
+                let newName = prompt("Editar nombre:", user.name);
+                let newEmail = prompt("Editar email:", user.email);
+                let newRole = prompt("Editar rol:", user.role);
+
+                if (newName && newEmail && newRole) {
+                    users[index] = { name: newName, email: newEmail, role: newRole };
+                    localStorage.setItem("users", JSON.stringify(users));
+                    displayUsers(users);
+                }
+            }
+
+            // Función para eliminar usuario
+            function deleteUser(event) {
+                let index = event.target.closest("button").dataset.index;
+                if (confirm("¿Estás seguro de que quieres eliminar este usuario?")) {
+                    users.splice(index, 1);
+                    localStorage.setItem("users", JSON.stringify(users));
+                    displayUsers(users);
+                }
+            }
+
+            // Función para resaltar coincidencias en la búsqueda
             function highlightMatches(query) {
-                let rows = document.querySelectorAll(".user-row");
+                let rows = document.querySelectorAll("#userTable tr");
                 rows.forEach(row => {
                     let cells = row.querySelectorAll("td");
                     let isMatch = false;
 
                     cells.forEach(cell => {
-                        // Limpiar el resaltado en todas las celdas
                         cell.classList.remove("highlight");
-
                         if (cell.textContent.toLowerCase().includes(query)) {
                             isMatch = true;
-                            cell.classList.add("highlight"); // Resaltar coincidencias
+                            cell.classList.add("highlight");
                         }
                     });
 
-                    // Mostrar solo las filas que tienen coincidencias
                     row.style.display = isMatch ? "" : "none";
                 });
             }
 
-            // Filtrar usuarios y resaltar coincidencias al escribir en el campo de búsqueda
+            // Filtrar usuarios y resaltar coincidencias al escribir en la barra de búsqueda
             document.getElementById("searchInput").addEventListener("input", function () {
                 let query = this.value.toLowerCase();
                 highlightMatches(query);
             });
 
-            // Agregar la funcionalidad al botón de lupa
+            // Agregar funcionalidad al botón de lupa
             document.getElementById("searchButton").addEventListener("click", function () {
                 let query = document.getElementById("searchInput").value.toLowerCase();
                 highlightMatches(query);
             });
 
-            // Agregar la funcionalidad para borrar todos los usuarios
+            // Función para borrar todos los usuarios
             document.getElementById("deleteButton").addEventListener("click", function () {
                 if (confirm("¿Estás seguro de que quieres borrar todos los usuarios?")) {
-                    localStorage.removeItem("users"); // Eliminar todos los usuarios del localStorage
-                    displayUsers([]); // Actualizar la tabla para reflejar que no hay usuarios
+                    localStorage.removeItem("users");
+                    displayUsers([]);
                     alert("Todos los usuarios han sido borrados.");
                 }
             });
-        });
 
+            // Redirigir a la página principal
+            document.getElementById("botonpaginaprincipal").addEventListener("click", function () {
+                window.location.href = "paginaprincipal.html";
+            });
+
+        });
     </script>
 </body>
 
