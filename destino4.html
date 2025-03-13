@@ -16,14 +16,21 @@
         <div class="splash-text">Explorando Maldivas</div>
     </div>
 
-    <div class="content" style="display: none;">
-        <header class="header">VIAJEMOS POR EL MUNDO</header>
-        <p>Bienvenidos a la guía de Maldivas</p>
-    </div>
-    
-    <!-- ENCABEZADO -->
-    <header class="header">VIAJEMOS POR EL MUNDO</header>
+ 
+    <header>
+        <nav>
+            <ul>
+                <li><a href="paginaprincipal.html">Inicio</a></li>
+                <li><a href="destino2.html">Destino 2</a></li>
+                <li><a href="destino3.html">Destino 3</a></li>
+                <li><a href="destino4.html">Destino 4</a></li>
+                <li><a href="destino5.html">Destino 5</a></li>
+                <li><a href="destino4.html">Destino 4</a></li>
 
+            </ul>
+        </nav>
+ 
+    </header>
     <!-- INTERRUPTOR DE TEMA -->
     <div class="toggle-wrapper">
         <input type="checkbox" id="toggle" class="toggle-checkbox">
@@ -45,71 +52,63 @@
                 allowfullscreen>
             </iframe>
         </section>
-
-        <div class="container mt-5">
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Malé
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <strong>Malé</strong> es la capital de Maldivas, con mercados vibrantes, mezquitas y una rica cultura. Es el punto de entrada principal para los turistas.
-                        </div>
+  <!-- Actividades recomendadas -->
+  <section class="activities">
+    <h2>Actividades recomendadas</h2>
+    <ul id="activity-list">
+        <li>Relajarse en una villa sobre el agua</li>
+        <li>Hacer snorkel en los arrecifes de coral</li>
+        <li>Disfrutar de un atardecer en la playa</li>
+        <li>Avistamiento de delfines en alta mar</li>
+        <li> Practicar buceo en aguas cristalinas</li>
+    </ul>
+</section>
+        <section class="photo-gallery">
+            <h2>Galería de fotos</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://th.bing.com/th/id/OIP.V9-mg83gThgwQP34s-ksDgHaE8?rs=1&pid=ImgDetMain" alt="Costa Amalfitana" class="gallery-image">
+                    <div class="overlay">
+                        <p>Visitar el Fushimi Inari Taisha</p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Atolón Ari
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <strong>Atolón Ari</strong> es famoso por sus arrecifes de coral y la posibilidad de nadar con tiburones ballena y mantarrayas.
-                        </div>
+                <div class="gallery-item">
+                    <img src="https://th.bing.com/th/id/R.0eb476ca0ec3a5a1dc42f8c4446ddb80?rik=c1%2fvZGx%2fF3ZxJw&pid=ImgRaw&r=0" alt="Catedral de Amalfi" class="gallery-image">
+                    <div class="overlay">
+                        <p> Explorar el Templo Senso-ji</p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Isla Maafushi
-                        </button>
-                    </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <strong>Isla Maafushi</strong> es un destino ideal para viajeros con presupuesto limitado, con hermosas playas y actividades acuáticas.
-                        </div>
+                <div class="gallery-item">
+                    <img src="https://th.bing.com/th/id/OIP.2DnaChO76IKXETyz8vsIeAHaE8?rs=1&pid=ImgDetMain" alt="Gastronomía local" class="gallery-image">
+                    <div class="overlay">
+                        <p> Disfrutar la gastronomía</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://th.bing.com/th/id/OIP.ZTsukeWpEGVue7eL3z7B4gFEDA?rs=1&pid=ImgDetMain" alt="Senderismo" class="gallery-image">
+                    <div class="overlay">
+                        <p>Disfrutar un espectáculo de geishas en Gion</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://estaticos-cdn.prensaiberica.es/clip/235cb064-77eb-4cd8-9a28-1a50fce66758_alta-aspect-ratio_default_0.jpg" alt="Playa Positano" class="gallery-image">
+                    <div class="overlay">
+                        <p> Relajarse en la playa</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://th.bing.com/th/id/OIP.J9SnQq2vqClMO9sTUF5AVwHaFj?rs=1&pid=ImgDetMain" alt="Playa Positano" class="gallery-image">
+                    <div class="overlay">
+                        <p> Atardeceres hermosos</p>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Actividades recomendadas -->
-        <section class="activities">
-            <h2>Actividades recomendadas</h2>
-            <ul id="activity-list">
-                <li>🏝️ Relajarse en una villa sobre el agua</li>
-                <li>🐠 Hacer snorkel en los arrecifes de coral</li>
-                <li>🌅 Disfrutar de un atardecer en la playa</li>
-                <li>🐬 Avistamiento de delfines en alta mar</li>
-                <li>🤿 Practicar buceo en aguas cristalinas</li>
-            </ul>
         </section>
+
+      
 
         <!-- Destinos turísticos destacados -->
-        <section class="destinos">
-            <h2>Destinos turísticos que debes conocer</h2>
-            <div class="parent">
-                <div class="ideauno">Isla Vaadhoo y su Mar de Estrellas</div>
-                <div class="ideados">Banana Reef</div>
-                <div class="ideatres">Isla Fulhadhoo</div>
-                <div class="ideacuatro">Reserva Biosfera de Baa</div>
-            </div>
-        </section>
-
+       
         <!-- Mapa -->
         <section class="map">
             <h2>Ubicación</h2>
@@ -122,6 +121,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Ocultar la pantalla de presentación después de 3 segundos
             setTimeout(() => {
                 document.querySelector(".splash-screen").classList.add("hidden");
                 setTimeout(() => {
@@ -131,11 +131,45 @@
             }, 3000);
 
             const toggleSwitch = document.getElementById("toggle");
+            const body = document.body;
+
+            // Verificar si hay una preferencia guardada en localStorage
+            if (localStorage.getItem("theme") === "dark") {
+                body.classList.add("dark-theme");
+                toggleSwitch.checked = true;
+            }
+
+            // Evento para cambiar entre modos
             toggleSwitch.addEventListener("change", function () {
-                document.body.classList.toggle("dark-theme");
+                if (this.checked) {
+                    body.classList.add("dark-theme");
+                    localStorage.setItem("theme", "dark");
+                } else {
+                    body.classList.remove("dark-theme");
+                    localStorage.setItem("theme", "light");
+                }
+                updateHoverEffect();
             });
+
+            function updateHoverEffect() {
+                document.querySelectorAll("#activity-list li").forEach(li => {
+                    li.addEventListener("mouseenter", function () {
+                        this.style.color = body.classList.contains("dark-theme") ? "#FFFF00" : "#007BFF";
+                    });
+                    li.addEventListener("mouseleave", function () {
+                        this.style.color = "";
+                    });
+                });
+            }
+
+            updateHoverEffect();
         });
+
+
     </script>
+    <footer class="footer">
+        <p class="mb-0">&copy; 2025 Viajemos Juntos - Desarrollado por Karen Verónica Mancilla Solarte</p>
+    </footer>
 </body>
 
 </html>
