@@ -75,7 +75,7 @@
 
     <!-- JavaScript -->
     <script >
-        document.addEventListener("DOMContentLoaded", function () {
+       document.addEventListener("DOMContentLoaded", function () {
     let registerForm = document.getElementById("registerForm");
     let splashScreen = document.getElementById("splash-screen");
     let progressBar = document.getElementById("progress-bar");
@@ -88,8 +88,9 @@
         let email = document.getElementById("email").value.trim();
         let password = document.getElementById("password").value;
         let confirmPassword = document.getElementById("confirm-password").value;
+        let role = document.getElementById("admin-role").value;
 
-        if (!name || !email || !password || !confirmPassword) {
+        if (!name || !email || !password || !confirmPassword || !role) {
             alert("Todos los campos son obligatorios.");
             return;
         }
@@ -111,9 +112,11 @@
             return;
         }
 
-        let newUser = { name, email, password: btoa(password) };
+        let newUser = { name, email, password: btoa(password), role };
         users.push(newUser);
         localStorage.setItem("users", JSON.stringify(users));
+
+        alert("Registro exitoso. Rol asignado: " + role);
 
         // Mostrar splash screen
         splashScreen.style.visibility = "visible";
