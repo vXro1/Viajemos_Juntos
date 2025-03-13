@@ -1,0 +1,202 @@
+:root {
+    --light-bg: #ffffff;
+    /* Blanco */
+    --dark-bg: #2d3e50;
+    /* Azul oscuro */
+    --dark-text: #ffffff;
+    /* Blanco para texto en fondos oscuros */
+    --light-text: #000000;
+    /* Negro para texto en fondos claros */
+    --accent: #77a6f7;
+    /* Azul claro */
+    --secondary: #a2d5f2;
+    /* Azul pastel suave */
+    --tertiary: #ffedc3;
+    /* Crema suave */
+}
+
+/* Estilo general del cuerpo */
+body {
+    background: linear-gradient(--light-text),
+        url('https://source.unsplash.com/1600x900/?travel,world');
+    background-size: cover;
+    background-position: center;
+    color: var(--light-text);
+}
+
+/* Estilo para la caja de registro */
+.register-box {
+    background-color: var(--secondary);
+    /* Color de fondo crema suave */
+    color: var(--dark-text);
+    /* Texto oscuro */
+    border-radius: 10px;
+    max-width: 450px;
+    width: 100%;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de título */
+h2 {
+    color: var(--dark-bg);
+    /* Color azul oscuro */
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Estilo para los inputs y select */
+.form-control {
+    background-color: var(--light-bg);
+    /* Blanco para los campos de entrada */
+    color: var(--dark-bg);
+    /* Texto oscuro */
+    border: 1px solid var(--secondary);
+    /* Borde azul pastel */
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+/* Estilo para el botón de registro */
+.btn-primary {
+    background-color: var(--accent);
+    /* Azul claro */
+    border: none;
+    color: var(--light-text);
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-bg);
+    /* Naranja suave */
+    transform: scale(1.05);
+}
+
+/* Estilo para los enlaces */
+a {
+    color: var(--accent);
+    /* Azul claro */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para el pie de página */
+p {
+    text-align: center;
+    color: var(--dark-text);
+}
+
+/* Estilo para los campos de error (si son necesarios) */
+/* Estilos del footer*/
+footer {
+    background-color: #2d3e50; /* Azul Bootstrap */
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    animation: fadeInUp 1.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Efecto al pasar el mouse */
+footer:hover {
+    background-color: var #2d3e50; /* Azul más oscuro */
+    transform: scale(1.05); /* Pequeño aumento de tamaño */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación personalizada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* estilos footer*/
+
+/* Efecto al pasar el mouse */
+footer:hover {
+    background-color: var #2d3e50; /* Azul más oscuro */
+    transform: scale(1.05); /* Pequeño aumento de tamaño */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Animación personalizada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Splash Screen */
+.splash-screen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+/* Avión */
+.plane-icon {
+    width: 50px;
+    position: absolute;
+    top: 40%;
+    left: 0%;
+    transition: left 3s linear;
+}
+
+/* Barra de progreso */
+.progress-container {
+    width: 80%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background: #007bff;
+    transition: width 3s linear;
+}
+
+/* Formulario */
+.register-box {
+    width: 400px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+/* Footer */
